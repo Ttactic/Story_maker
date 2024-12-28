@@ -2,6 +2,14 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from main_ui import Ui_MainWindow  
 import random as rn
+import pyttsx3
+
+# text to speech
+engine = pyttsx3.init()
+engine.setProperty('rate', 150)  
+engine.setProperty('volume', 1)
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
 
 # story elements
 characters = [
@@ -57,7 +65,8 @@ class StoryApp(QMainWindow):
         else:
             story = f"A {personality} {character} in {place} embarked on a quest to {goal}."
         self.ui.story_box.setPlainText(story)
-        print("Story generated!")
+        engine.say(story)
+        engine.runAndWait()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
