@@ -30,6 +30,7 @@ A kind detective in a village sought to solve a mystery.
 - **Python 3.x**
 - **PyQt5** (GUI Toolkit)
 - **Random** (for story element selection)
+- **Pyttsx3** (text to speech)
 
 ## Learning Journey
 
